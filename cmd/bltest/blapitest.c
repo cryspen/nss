@@ -2728,6 +2728,10 @@ cipherFinish(bltestCipherInfo *cipherInfo)
         case bltestSHA256:
         case bltestSHA384:
         case bltestSHA512:
+        case bltestSHA3_224:
+        case bltestSHA3_256:
+        case bltestSHA3_384:
+        case bltestSHA3_512:
             return SECSuccess;
             break;
         default:
