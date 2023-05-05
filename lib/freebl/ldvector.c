@@ -375,9 +375,43 @@ static const struct FREEBLVectorStr vector = {
     /* End of version 3.024 */
     ChaCha20_InitContext,
     ChaCha20_CreateContext,
-    ChaCha20_DestroyContext
+    ChaCha20_DestroyContext,
 
     /* End of version 3.025 */
+
+    SHA3_224_NewContext,
+    SHA3_224_DestroyContext,
+    SHA3_224_Begin,
+    SHA3_224_Update,
+    SHA3_224_End,
+    SHA3_224_HashBuf,
+    SHA3_224_Hash,
+
+    SHA3_256_NewContext,
+    SHA3_256_DestroyContext,
+    SHA3_256_Begin,
+    SHA3_256_Update,
+    SHA3_256_End,
+    SHA3_256_HashBuf,
+    SHA3_256_Hash,
+
+    SHA3_384_NewContext,
+    SHA3_384_DestroyContext,
+    SHA3_384_Begin,
+    SHA3_384_Update,
+    SHA3_384_End,
+    SHA3_384_HashBuf,
+    SHA3_384_Hash,
+
+    SHA3_512_NewContext,
+    SHA3_512_DestroyContext,
+    SHA3_512_Begin,
+    SHA3_512_Update,
+    SHA3_512_End,
+    SHA3_512_HashBuf,
+    SHA3_512_Hash,
+
+   /* End of version 3.026 */
 };
 
 const FREEBLVector*

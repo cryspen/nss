@@ -2446,3 +2446,240 @@ CMAC_Destroy(CMACContext *ctx, PRBool free_it)
         return;
     (vector->p_CMAC_Destroy)(ctx, free_it);
 }
+
+/* ============== New for 3.0026 =============================== */
+
+SHA3_224Context *
+SHA3_224_NewContext(void)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return NULL;
+    return (vector->p_SHA3_224_NewContext)();
+}
+
+void
+SHA3_224_DestroyContext(SHA3_224Context *cx, PRBool freeit)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_224_DestroyContext)(cx, freeit);
+}
+
+void
+SHA3_224_Begin(SHA3_224Context *cx)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_224_Begin)(cx);
+}
+
+void
+SHA3_224_Update(SHA3_224Context *cx, const unsigned char *input,
+              unsigned int inputLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_224_Update)(cx, input, inputLen);
+}
+
+void
+SHA3_224_End(SHA3_224Context *cx, unsigned char *digest,
+           unsigned int *digestLen, unsigned int maxDigestLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_224_End)(cx, digest, digestLen, maxDigestLen);
+}
+
+SECStatus
+SHA3_224_Hash(unsigned char *dest, const char *src)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_224_Hash)(dest, src);
+}
+
+SECStatus
+SHA3_224_HashBuf(unsigned char *dest, const unsigned char *src, PRUint32 src_length)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_224_HashBuf)(dest, src, src_length);
+}
+
+
+SHA3_256Context *
+SHA3_256_NewContext(void)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return NULL;
+    return (vector->p_SHA3_256_NewContext)();
+}
+
+void
+SHA3_256_DestroyContext(SHA3_256Context *cx, PRBool freeit)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_256_DestroyContext)(cx, freeit);
+}
+
+void
+SHA3_256_Begin(SHA3_256Context *cx)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_256_Begin)(cx);
+}
+
+void
+SHA3_256_Update(SHA3_256Context *cx, const unsigned char *input,
+              unsigned int inputLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_256_Update)(cx, input, inputLen);
+}
+
+void
+SHA3_256_End(SHA3_256Context *cx, unsigned char *digest,
+           unsigned int *digestLen, unsigned int maxDigestLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_256_End)(cx, digest, digestLen, maxDigestLen);
+}
+
+
+SECStatus
+SHA3_256_Hash(unsigned char *dest, const char *src)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_256_Hash)(dest, src);
+}
+
+SECStatus
+SHA3_256_HashBuf(unsigned char *dest, const unsigned char *src, PRUint32 src_length)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_256_HashBuf)(dest, src, src_length);
+}
+
+SHA3_384Context *
+SHA3_384_NewContext(void)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return NULL;
+    return (vector->p_SHA3_384_NewContext)();
+}
+
+void
+SHA3_384_DestroyContext(SHA3_384Context *cx, PRBool freeit)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_384_DestroyContext)(cx, freeit);
+}
+
+void
+SHA3_384_Begin(SHA3_384Context *cx)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_384_Begin)(cx);
+}
+
+void
+SHA3_384_Update(SHA3_384Context *cx, const unsigned char *input,
+              unsigned int inputLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_384_Update)(cx, input, inputLen);
+}
+
+void
+SHA3_384_End(SHA3_384Context *cx, unsigned char *digest,
+           unsigned int *digestLen, unsigned int maxDigestLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_384_End)(cx, digest, digestLen, maxDigestLen);
+}
+
+
+SECStatus
+SHA3_384_Hash(unsigned char *dest, const char *src)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_384_Hash)(dest, src);
+}
+
+SECStatus
+SHA3_384_HashBuf(unsigned char *dest, const unsigned char *src, PRUint32 src_length)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_384_HashBuf)(dest, src, src_length);
+}
+
+SHA3_512Context *
+SHA3_512_NewContext(void)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return NULL;
+    return (vector->p_SHA3_512_NewContext)();
+}
+
+void
+SHA3_512_DestroyContext(SHA3_512Context *cx, PRBool freeit)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_512_DestroyContext)(cx, freeit);
+}
+
+void
+SHA3_512_Begin(SHA3_512Context *cx)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_512_Begin)(cx);
+}
+
+void
+SHA3_512_Update(SHA3_512Context *cx, const unsigned char *input,
+              unsigned int inputLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_512_Update)(cx, input, inputLen);
+}
+
+void
+SHA3_512_End(SHA3_512Context *cx, unsigned char *digest,
+           unsigned int *digestLen, unsigned int maxDigestLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHA3_512_End)(cx, digest, digestLen, maxDigestLen);
+}
+
+SECStatus
+SHA3_512_Hash(unsigned char *dest, const char *src)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_512_Hash)(dest, src);
+}
+
+SECStatus
+SHA3_512_HashBuf(unsigned char *dest, const unsigned char *src, PRUint32 src_length)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHA3_512_HashBuf)(dest, src, src_length);
+}

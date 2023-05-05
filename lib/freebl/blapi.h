@@ -1370,6 +1370,14 @@ extern void SHA1_Clone(SHA1Context *dest, SHA1Context *src);
 
 /******************************************/
 
+
+/******************************************/
+/*
+** SHA-2 secure hash function
+** The SHA-2 family includes SHA224, SHA256, SHA384, and SHA512
+*/
+
+
 extern SHA224Context *SHA224_NewContext(void);
 extern void SHA224_DestroyContext(SHA224Context *cx, PRBool freeit);
 extern void SHA224_Begin(SHA224Context *cx);
@@ -1483,6 +1491,68 @@ extern unsigned int SHA384_FlattenSize(SHA384Context *cx);
 extern SECStatus SHA384_Flatten(SHA384Context *cx, unsigned char *space);
 extern SHA384Context *SHA384_Resurrect(unsigned char *space, void *arg);
 extern void SHA384_Clone(SHA384Context *dest, SHA384Context *src);
+
+/******************************************/
+/*
+** SHA-3 secure hash function
+** The SHA-2 family includes SHA3_224, SHA3_256, SHA3_384, and SHA3_512
+*/
+
+
+extern SHA3_224Context *SHA3_224_NewContext(void);
+extern void SHA3_224_DestroyContext(SHA3_224Context *cx, PRBool freeit);
+extern void SHA3_224_Begin(SHA3_224Context *cx);
+extern void SHA3_224_Update(SHA3_224Context *cx, const unsigned char *input,
+                          unsigned int inputLen);
+extern void SHA3_224_End(SHA3_224Context *cx, unsigned char *digest,
+                       unsigned int *digestLen, unsigned int maxDigestLen);
+
+extern SECStatus SHA3_224_HashBuf(unsigned char *dest, const unsigned char *src,
+                                PRUint32 src_length);
+extern SECStatus SHA3_224_Hash(unsigned char *dest, const char *src);
+
+/******************************************/
+
+extern SHA3_256Context *SHA3_256_NewContext(void);
+extern void SHA3_256_DestroyContext(SHA3_256Context *cx, PRBool freeit);
+extern void SHA3_256_Begin(SHA3_256Context *cx);
+extern void SHA3_256_Update(SHA3_256Context *cx, const unsigned char *input,
+                          unsigned int inputLen);
+extern void SHA3_256_End(SHA3_256Context *cx, unsigned char *digest,
+                       unsigned int *digestLen, unsigned int maxDigestLen);
+
+extern SECStatus SHA3_256_HashBuf(unsigned char *dest, const unsigned char *src,
+                                PRUint32 src_length);
+extern SECStatus SHA3_256_Hash(unsigned char *dest, const char *src);
+
+
+/******************************************/
+
+extern SHA3_384Context *SHA3_384_NewContext(void);
+extern void SHA3_384_DestroyContext(SHA3_384Context *cx, PRBool freeit);
+extern void SHA3_384_Begin(SHA3_384Context *cx);
+extern void SHA3_384_Update(SHA3_384Context *cx, const unsigned char *input,
+                          unsigned int inputLen);
+extern void SHA3_384_End(SHA3_384Context *cx, unsigned char *digest,
+                       unsigned int *digestLen, unsigned int maxDigestLen);
+
+extern SECStatus SHA3_384_HashBuf(unsigned char *dest, const unsigned char *src,
+                                PRUint32 src_length);
+extern SECStatus SHA3_384_Hash(unsigned char *dest, const char *src);
+
+/******************************************/
+
+extern SHA3_512Context *SHA3_512_NewContext(void);
+extern void SHA3_512_DestroyContext(SHA3_512Context *cx, PRBool freeit);
+extern void SHA3_512_Begin(SHA3_512Context *cx);
+extern void SHA3_512_Update(SHA3_512Context *cx, const unsigned char *input,
+                          unsigned int inputLen);
+extern void SHA3_512_End(SHA3_512Context *cx, unsigned char *digest,
+                       unsigned int *digestLen, unsigned int maxDigestLen);
+
+extern SECStatus SHA3_512_HashBuf(unsigned char *dest, const unsigned char *src,
+                                PRUint32 src_length);
+extern SECStatus SHA3_512_Hash(unsigned char *dest, const char *src);
 
 /****************************************
  * implement TLS 1.0 Pseudo Random Function (PRF) and TLS P_hash function
