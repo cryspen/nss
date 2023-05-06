@@ -48,7 +48,7 @@ void SHA3_224_DestroyContext(SHA3_224Context *ctx, PRBool freeit)
     Hacl_Streaming_Keccak_reset(ctx->st);
     if (freeit) {
         Hacl_Streaming_Keccak_free(ctx->st);
-	PORT_Free(ctx);
+        PORT_Free(ctx);
     }
 
 }
@@ -58,7 +58,7 @@ void SHA3_256_DestroyContext(SHA3_256Context *ctx, PRBool freeit)
     Hacl_Streaming_Keccak_reset(ctx->st);
     if (freeit) {
         Hacl_Streaming_Keccak_free(ctx->st);
-	PORT_Free(ctx);
+        PORT_Free(ctx);
     }
 }
 
@@ -67,7 +67,7 @@ void SHA3_384_DestroyContext(SHA3_384Context *ctx, PRBool freeit)
     Hacl_Streaming_Keccak_reset(ctx->st);
     if (freeit) {
         Hacl_Streaming_Keccak_free(ctx->st);
-	PORT_Free(ctx);
+        PORT_Free(ctx);
     }
 }
 
@@ -76,7 +76,7 @@ void SHA3_512_DestroyContext(SHA3_512Context *ctx, PRBool freeit)
     Hacl_Streaming_Keccak_reset(ctx->st);
     if (freeit) {
         Hacl_Streaming_Keccak_free(ctx->st);
-	PORT_Free(ctx);
+        PORT_Free(ctx);
     }
 }
 
@@ -131,7 +131,7 @@ void SHA3_224_End(SHA3_224Context *ctx, unsigned char *digest,
     uint8_t sha3_digest[SHA3_224_LENGTH] = {0};
     Hacl_Streaming_Keccak_finish(ctx->st, sha3_digest);
 
-    int len = PR_MIN(SHA3_224_LENGTH, maxDigestLen);
+    unsigned int len = PR_MIN(SHA3_224_LENGTH, maxDigestLen);
     memcpy(digest, sha3_digest, len);
     if (digestLen)
         *digestLen = len;
@@ -144,7 +144,7 @@ void SHA3_256_End(SHA3_256Context *ctx, unsigned char *digest,
     uint8_t sha3_digest[SHA3_256_LENGTH] = {0};
     Hacl_Streaming_Keccak_finish(ctx->st, sha3_digest);
 
-    int len = PR_MIN(SHA3_256_LENGTH, maxDigestLen);
+    unsigned int len = PR_MIN(SHA3_256_LENGTH, maxDigestLen);
     memcpy(digest, sha3_digest, len);
     if (digestLen)
         *digestLen = len;
@@ -157,7 +157,7 @@ void SHA3_384_End(SHA3_384Context *ctx, unsigned char *digest,
     uint8_t sha3_digest[SHA3_384_LENGTH] = {0};
     Hacl_Streaming_Keccak_finish(ctx->st, sha3_digest);
 
-    int len = PR_MIN(SHA3_384_LENGTH, maxDigestLen);
+    unsigned int len = PR_MIN(SHA3_384_LENGTH, maxDigestLen);
     memcpy(digest, sha3_digest, len);
     if (digestLen)
         *digestLen = len;
@@ -170,7 +170,7 @@ void SHA3_512_End(SHA3_512Context *ctx, unsigned char *digest,
     uint8_t sha3_digest[SHA3_512_LENGTH] = {0};
     Hacl_Streaming_Keccak_finish(ctx->st, sha3_digest);
 
-    int len = PR_MIN(SHA3_512_LENGTH, maxDigestLen);
+    unsigned int len = PR_MIN(SHA3_512_LENGTH, maxDigestLen);
     memcpy(digest, sha3_digest, len);
     if (digestLen)
         *digestLen = len;
