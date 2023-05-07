@@ -1495,7 +1495,7 @@ extern void SHA384_Clone(SHA384Context *dest, SHA384Context *src);
 /******************************************/
 /*
 ** SHA-3 secure hash function
-** The SHA-2 family includes SHA3_224, SHA3_256, SHA3_384, and SHA3_512
+** The SHA-3 family includes SHA3_224, SHA3_256, SHA3_384, and SHA3_512
 */
 
 
