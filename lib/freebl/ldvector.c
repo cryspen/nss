@@ -411,6 +411,22 @@ static const struct FREEBLVectorStr vector = {
     SHA3_512_HashBuf,
     SHA3_512_Hash,
 
+    SHAKE_128_NewContext,
+    SHAKE_128_DestroyContext,
+    SHAKE_128_Begin,
+    SHAKE_128_Absorb,
+    SHAKE_128_SqueezeEnd,
+    SHAKE_128_HashBuf,
+    SHAKE_128_Hash,
+
+    SHAKE_256_NewContext,
+    SHAKE_256_DestroyContext,
+    SHAKE_256_Begin,
+    SHAKE_256_Absorb,
+    SHAKE_256_SqueezeEnd,
+    SHAKE_256_HashBuf,
+    SHAKE_256_Hash,
+
    /* End of version 3.026 */
 };
 

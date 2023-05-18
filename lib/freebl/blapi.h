@@ -1554,6 +1554,37 @@ extern SECStatus SHA3_512_HashBuf(unsigned char *dest, const unsigned char *src,
                                 PRUint32 src_length);
 extern SECStatus SHA3_512_Hash(unsigned char *dest, const char *src);
 
+/******************************************/
+/*
+** SHAKE XOF functions from SHA-3
+** The SHAKE family includes SHAKE_128 and SHAKE_256
+*/
+
+
+extern SHAKE_128Context *SHAKE_128_NewContext(void);
+extern void SHAKE_128_DestroyContext(SHAKE_128Context *cx, PRBool freeit);
+extern void SHAKE_128_Begin(SHAKE_128Context *cx);
+extern void SHAKE_128_Absorb(SHAKE_128Context *cx, const unsigned char *input,
+                          unsigned int inputLen);
+extern void SHAKE_128_SqueezeEnd(SHAKE_128Context *cx, unsigned char *digest,
+				 unsigned int digestLen);
+extern SECStatus SHAKE_128_HashBuf(unsigned char *dest, unsigned int dest_len,
+				   const unsigned char *src, PRUint32 src_length);
+extern SECStatus SHAKE_128_Hash(unsigned char *dest, const char *src);
+
+/******************************************/
+
+extern SHAKE_256Context *SHAKE_256_NewContext(void);
+extern void SHAKE_256_DestroyContext(SHAKE_256Context *cx, PRBool freeit);
+extern void SHAKE_256_Begin(SHAKE_256Context *cx);
+extern void SHAKE_256_Absorb(SHAKE_256Context *cx, const unsigned char *input,
+                          unsigned int inputLen);
+extern void SHAKE_256_SqueezeEnd(SHAKE_256Context *cx, unsigned char *digest,
+				 unsigned int digestLen);
+extern SECStatus SHAKE_256_HashBuf(unsigned char *dest, unsigned int dest_len,
+				   const unsigned char *src, PRUint32 src_length);
+extern SECStatus SHAKE_256_Hash(unsigned char *dest, const char *src);
+
 /****************************************
  * implement TLS 1.0 Pseudo Random Function (PRF) and TLS P_hash function
  */

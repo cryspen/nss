@@ -2683,3 +2683,121 @@ SHA3_512_HashBuf(unsigned char *dest, const unsigned char *src, PRUint32 src_len
         return SECFailure;
     return (vector->p_SHA3_512_HashBuf)(dest, src, src_length);
 }
+
+
+SHAKE_128Context *
+SHAKE_128_NewContext(void)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return NULL;
+    return (vector->p_SHAKE_128_NewContext)();
+}
+
+void
+SHAKE_128_DestroyContext(SHAKE_128Context *cx, PRBool freeit)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_128_DestroyContext)(cx, freeit);
+}
+
+void
+SHAKE_128_Begin(SHAKE_128Context *cx)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_128_Begin)(cx);
+}
+
+void
+SHAKE_128_Absorb(SHAKE_128Context *cx, const unsigned char *input,
+              unsigned int inputLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_128_Absorb)(cx, input, inputLen);
+}
+
+void
+SHAKE_128_SqueezeEnd(SHAKE_128Context *cx, unsigned char *digest,
+           unsigned int digestLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_128_SqueezeEnd)(cx, digest, digestLen);
+}
+
+SECStatus
+SHAKE_128_HashBuf(unsigned char *dest, PRUint32 dest_length, const unsigned char *src, PRUint32 src_length)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHAKE_128_HashBuf)(dest, dest_length, src, src_length);
+}
+
+SECStatus
+SHAKE_128_Hash(unsigned char *dest, const char *src)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHAKE_128_Hash)(dest, src);
+}
+
+SHAKE_256Context *
+SHAKE_256_NewContext(void)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return NULL;
+    return (vector->p_SHAKE_256_NewContext)();
+}
+
+void
+SHAKE_256_DestroyContext(SHAKE_256Context *cx, PRBool freeit)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_256_DestroyContext)(cx, freeit);
+}
+
+void
+SHAKE_256_Begin(SHAKE_256Context *cx)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_256_Begin)(cx);
+}
+
+void
+SHAKE_256_Absorb(SHAKE_256Context *cx, const unsigned char *input,
+              unsigned int inputLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_256_Absorb)(cx, input, inputLen);
+}
+
+void
+SHAKE_256_SqueezeEnd(SHAKE_256Context *cx, unsigned char *digest,
+           unsigned int digestLen)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return;
+    (vector->p_SHAKE_256_SqueezeEnd)(cx, digest, digestLen);
+}
+
+SECStatus
+SHAKE_256_HashBuf(unsigned char *dest, PRUint32 dest_length, const unsigned char *src, PRUint32 src_length)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHAKE_256_HashBuf)(dest, dest_length, src, src_length);
+}
+
+SECStatus
+SHAKE_256_Hash(unsigned char *dest, const char *src)
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_SHAKE_256_Hash)(dest, src);
+}
+

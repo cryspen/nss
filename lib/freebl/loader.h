@@ -881,6 +881,31 @@ struct FREEBLVectorStr {
     SECStatus (*p_SHA3_512_Hash)(unsigned char *dest, const char *src);
   
 
+    SHAKE_128Context *(*p_SHAKE_128_NewContext)(void);
+    void (*p_SHAKE_128_DestroyContext)(SHAKE_128Context *cx, PRBool freeit);
+    void (*p_SHAKE_128_Begin)(SHAKE_128Context *cx);
+    void (*p_SHAKE_128_Absorb)(SHAKE_128Context *cx, const unsigned char *input,
+                            unsigned int inputLen);
+    void (*p_SHAKE_128_SqueezeEnd)(SHAKE_128Context *cx, unsigned char *digest,
+                         unsigned int digestLen);
+
+    SECStatus (*p_SHAKE_128_HashBuf)(unsigned char *dest, PRUint32 dest_length,
+				     const unsigned char *src, PRUint32 src_length);
+    SECStatus (*p_SHAKE_128_Hash)(unsigned char *dest, const char *src);
+  
+    SHAKE_256Context *(*p_SHAKE_256_NewContext)(void);
+    void (*p_SHAKE_256_DestroyContext)(SHAKE_256Context *cx, PRBool freeit);
+    void (*p_SHAKE_256_Begin)(SHAKE_256Context *cx);
+    void (*p_SHAKE_256_Absorb)(SHAKE_256Context *cx, const unsigned char *input,
+                            unsigned int inputLen);
+    void (*p_SHAKE_256_SqueezeEnd)(SHAKE_256Context *cx, unsigned char *digest,
+                         unsigned int digestLen);
+
+    SECStatus (*p_SHAKE_256_HashBuf)(unsigned char *dest, PRUint32 dest_length,
+				     const unsigned char *src, PRUint32 src_length);
+    SECStatus (*p_SHAKE_256_Hash)(unsigned char *dest, const char *src);
+
+  
     /* Version 3.026 came to here */
   
     /* Add new function pointers at the end of this struct and bump
