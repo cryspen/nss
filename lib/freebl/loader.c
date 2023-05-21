@@ -2736,11 +2736,11 @@ SHAKE_128_HashBuf(unsigned char *dest, PRUint32 dest_length, const unsigned char
 }
 
 SECStatus
-SHAKE_128_Hash(unsigned char *dest, const char *src)
+SHAKE_128_Hash(unsigned char *dest, PRUint32 dest_length, const char *src)
 {
     if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
         return SECFailure;
-    return (vector->p_SHAKE_128_Hash)(dest, src);
+    return (vector->p_SHAKE_128_Hash)(dest, dest_length, src);
 }
 
 SHAKE_256Context *
@@ -2794,10 +2794,10 @@ SHAKE_256_HashBuf(unsigned char *dest, PRUint32 dest_length, const unsigned char
 }
 
 SECStatus
-SHAKE_256_Hash(unsigned char *dest, const char *src)
+SHAKE_256_Hash(unsigned char *dest, PRUint32 dest_length, const char *src)
 {
     if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
         return SECFailure;
-    return (vector->p_SHAKE_256_Hash)(dest, src);
+    return (vector->p_SHAKE_256_Hash)(dest, dest_length, src);
 }
 

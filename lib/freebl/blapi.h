@@ -1570,7 +1570,7 @@ extern void SHAKE_128_SqueezeEnd(SHAKE_128Context *cx, unsigned char *digest,
 				 unsigned int digestLen);
 extern SECStatus SHAKE_128_HashBuf(unsigned char *dest, unsigned int dest_len,
 				   const unsigned char *src, PRUint32 src_length);
-extern SECStatus SHAKE_128_Hash(unsigned char *dest, const char *src);
+extern SECStatus SHAKE_128_Hash(unsigned char *dest, unsigned int dest_len, const char *src);
 
 /******************************************/
 
@@ -1583,7 +1583,7 @@ extern void SHAKE_256_SqueezeEnd(SHAKE_256Context *cx, unsigned char *digest,
 				 unsigned int digestLen);
 extern SECStatus SHAKE_256_HashBuf(unsigned char *dest, unsigned int dest_len,
 				   const unsigned char *src, PRUint32 src_length);
-extern SECStatus SHAKE_256_Hash(unsigned char *dest, const char *src);
+extern SECStatus SHAKE_256_Hash(unsigned char *dest, unsigned int dest_len, const char *src);
 
 /****************************************
  * implement TLS 1.0 Pseudo Random Function (PRF) and TLS P_hash function

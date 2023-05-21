@@ -107,14 +107,14 @@ SHAKE_256_HashBuf(unsigned char *dest, PRUint32 dest_length,
     return SECSuccess;
 }
 
-SECStatus SHAKE_128_Hash(unsigned char *dest, const char *src)
+SECStatus SHAKE_128_Hash(unsigned char *dest, unsigned int dest_length, const char *src)
 {
-    return SHAKE_128_HashBuf(dest, PORT_Strlen((const char*) dest), (const unsigned char *)src, PORT_Strlen(src));
+    return SHAKE_128_HashBuf(dest, dest_length, (const unsigned char *)src, PORT_Strlen(src));
 }
 
-SECStatus SHAKE_256_Hash(unsigned char *dest, const char *src)
+SECStatus SHAKE_256_Hash(unsigned char *dest, unsigned int dest_length, const char *src)
 {
-    return SHAKE_256_HashBuf(dest, PORT_Strlen((const char*) dest), (const unsigned char *)src, PORT_Strlen(src));
+    return SHAKE_256_HashBuf(dest, dest_length, (const unsigned char *)src, PORT_Strlen(src));
 }
 
  

@@ -891,7 +891,7 @@ struct FREEBLVectorStr {
 
     SECStatus (*p_SHAKE_128_HashBuf)(unsigned char *dest, PRUint32 dest_length,
 				     const unsigned char *src, PRUint32 src_length);
-    SECStatus (*p_SHAKE_128_Hash)(unsigned char *dest, const char *src);
+  SECStatus (*p_SHAKE_128_Hash)(unsigned char *dest, PRUint32 dest_length, const char *src);
   
     SHAKE_256Context *(*p_SHAKE_256_NewContext)(void);
     void (*p_SHAKE_256_DestroyContext)(SHAKE_256Context *cx, PRBool freeit);
@@ -903,7 +903,7 @@ struct FREEBLVectorStr {
 
     SECStatus (*p_SHAKE_256_HashBuf)(unsigned char *dest, PRUint32 dest_length,
 				     const unsigned char *src, PRUint32 src_length);
-    SECStatus (*p_SHAKE_256_Hash)(unsigned char *dest, const char *src);
+    SECStatus (*p_SHAKE_256_Hash)(unsigned char *dest, PRUint32 dest_length, const char *src);
 
   
     /* Version 3.026 came to here */
