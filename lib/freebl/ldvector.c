@@ -427,7 +427,7 @@ static const struct FREEBLVectorStr vector = {
     SHAKE_256_HashBuf,
     SHAKE_256_Hash,
 
-   /* End of version 3.026 */
+    /* End of version 3.026 */
 };
 
 const FREEBLVector*

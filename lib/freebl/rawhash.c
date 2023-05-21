@@ -162,7 +162,7 @@ const SECHashObject SECRawHashObjects[] = {
                 unsigned int))SHA3_256_End,
       SHA3_256_BLOCK_LENGTH,
       HASH_AlgSHA3_256,
-      NULL }, 
+      NULL },
     { SHA3_384_LENGTH,
       (void *(*)(void))SHA3_384_NewContext,
       (void *(*)(void *))null_hash_clone_context,

@@ -22,7 +22,6 @@
  * SOFTWARE.
  */
 
-
 #ifndef __Hacl_Streaming_Types_H
 #define __Hacl_Streaming_Types_H
 
@@ -52,21 +51,17 @@ extern "C" {
 
 typedef uint8_t Spec_Hash_Definitions_hash_alg;
 
-typedef struct Hacl_Streaming_MD_state_32_s
-{
-  uint32_t *block_state;
-  uint8_t *buf;
-  uint64_t total_len;
-}
-Hacl_Streaming_MD_state_32;
+typedef struct Hacl_Streaming_MD_state_32_s {
+    uint32_t *block_state;
+    uint8_t *buf;
+    uint64_t total_len;
+} Hacl_Streaming_MD_state_32;
 
-typedef struct Hacl_Streaming_MD_state_64_s
-{
-  uint64_t *block_state;
-  uint8_t *buf;
-  uint64_t total_len;
-}
-Hacl_Streaming_MD_state_64;
+typedef struct Hacl_Streaming_MD_state_64_s {
+    uint64_t *block_state;
+    uint8_t *buf;
+    uint64_t total_len;
+} Hacl_Streaming_MD_state_64;
 
 #if defined(__cplusplus)
 }

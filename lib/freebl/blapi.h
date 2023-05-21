@@ -1370,13 +1370,11 @@ extern void SHA1_Clone(SHA1Context *dest, SHA1Context *src);
 
 /******************************************/
 
-
 /******************************************/
 /*
 ** SHA-2 secure hash function
 ** The SHA-2 family includes SHA224, SHA256, SHA384, and SHA512
 */
-
 
 extern SHA224Context *SHA224_NewContext(void);
 extern void SHA224_DestroyContext(SHA224Context *cx, PRBool freeit);
@@ -1498,17 +1496,16 @@ extern void SHA384_Clone(SHA384Context *dest, SHA384Context *src);
 ** The SHA-3 family includes SHA3_224, SHA3_256, SHA3_384, and SHA3_512
 */
 
-
 extern SHA3_224Context *SHA3_224_NewContext(void);
 extern void SHA3_224_DestroyContext(SHA3_224Context *cx, PRBool freeit);
 extern void SHA3_224_Begin(SHA3_224Context *cx);
 extern void SHA3_224_Update(SHA3_224Context *cx, const unsigned char *input,
-                          unsigned int inputLen);
+                            unsigned int inputLen);
 extern void SHA3_224_End(SHA3_224Context *cx, unsigned char *digest,
-                       unsigned int *digestLen, unsigned int maxDigestLen);
+                         unsigned int *digestLen, unsigned int maxDigestLen);
 
 extern SECStatus SHA3_224_HashBuf(unsigned char *dest, const unsigned char *src,
-                                PRUint32 src_length);
+                                  PRUint32 src_length);
 extern SECStatus SHA3_224_Hash(unsigned char *dest, const char *src);
 
 /******************************************/
@@ -1517,14 +1514,13 @@ extern SHA3_256Context *SHA3_256_NewContext(void);
 extern void SHA3_256_DestroyContext(SHA3_256Context *cx, PRBool freeit);
 extern void SHA3_256_Begin(SHA3_256Context *cx);
 extern void SHA3_256_Update(SHA3_256Context *cx, const unsigned char *input,
-                          unsigned int inputLen);
+                            unsigned int inputLen);
 extern void SHA3_256_End(SHA3_256Context *cx, unsigned char *digest,
-                       unsigned int *digestLen, unsigned int maxDigestLen);
+                         unsigned int *digestLen, unsigned int maxDigestLen);
 
 extern SECStatus SHA3_256_HashBuf(unsigned char *dest, const unsigned char *src,
-                                PRUint32 src_length);
+                                  PRUint32 src_length);
 extern SECStatus SHA3_256_Hash(unsigned char *dest, const char *src);
-
 
 /******************************************/
 
@@ -1532,12 +1528,12 @@ extern SHA3_384Context *SHA3_384_NewContext(void);
 extern void SHA3_384_DestroyContext(SHA3_384Context *cx, PRBool freeit);
 extern void SHA3_384_Begin(SHA3_384Context *cx);
 extern void SHA3_384_Update(SHA3_384Context *cx, const unsigned char *input,
-                          unsigned int inputLen);
+                            unsigned int inputLen);
 extern void SHA3_384_End(SHA3_384Context *cx, unsigned char *digest,
-                       unsigned int *digestLen, unsigned int maxDigestLen);
+                         unsigned int *digestLen, unsigned int maxDigestLen);
 
 extern SECStatus SHA3_384_HashBuf(unsigned char *dest, const unsigned char *src,
-                                PRUint32 src_length);
+                                  PRUint32 src_length);
 extern SECStatus SHA3_384_Hash(unsigned char *dest, const char *src);
 
 /******************************************/
@@ -1546,12 +1542,12 @@ extern SHA3_512Context *SHA3_512_NewContext(void);
 extern void SHA3_512_DestroyContext(SHA3_512Context *cx, PRBool freeit);
 extern void SHA3_512_Begin(SHA3_512Context *cx);
 extern void SHA3_512_Update(SHA3_512Context *cx, const unsigned char *input,
-                          unsigned int inputLen);
+                            unsigned int inputLen);
 extern void SHA3_512_End(SHA3_512Context *cx, unsigned char *digest,
-                       unsigned int *digestLen, unsigned int maxDigestLen);
+                         unsigned int *digestLen, unsigned int maxDigestLen);
 
 extern SECStatus SHA3_512_HashBuf(unsigned char *dest, const unsigned char *src,
-                                PRUint32 src_length);
+                                  PRUint32 src_length);
 extern SECStatus SHA3_512_Hash(unsigned char *dest, const char *src);
 
 /******************************************/
@@ -1560,16 +1556,15 @@ extern SECStatus SHA3_512_Hash(unsigned char *dest, const char *src);
 ** The SHAKE family includes SHAKE_128 and SHAKE_256
 */
 
-
 extern SHAKE_128Context *SHAKE_128_NewContext(void);
 extern void SHAKE_128_DestroyContext(SHAKE_128Context *cx, PRBool freeit);
 extern void SHAKE_128_Begin(SHAKE_128Context *cx);
 extern void SHAKE_128_Absorb(SHAKE_128Context *cx, const unsigned char *input,
-                          unsigned int inputLen);
+                             unsigned int inputLen);
 extern void SHAKE_128_SqueezeEnd(SHAKE_128Context *cx, unsigned char *digest,
-				 unsigned int digestLen);
+                                 unsigned int digestLen);
 extern SECStatus SHAKE_128_HashBuf(unsigned char *dest, unsigned int dest_len,
-				   const unsigned char *src, PRUint32 src_length);
+                                   const unsigned char *src, PRUint32 src_length);
 extern SECStatus SHAKE_128_Hash(unsigned char *dest, unsigned int dest_len, const char *src);
 
 /******************************************/
@@ -1578,11 +1573,11 @@ extern SHAKE_256Context *SHAKE_256_NewContext(void);
 extern void SHAKE_256_DestroyContext(SHAKE_256Context *cx, PRBool freeit);
 extern void SHAKE_256_Begin(SHAKE_256Context *cx);
 extern void SHAKE_256_Absorb(SHAKE_256Context *cx, const unsigned char *input,
-                          unsigned int inputLen);
+                             unsigned int inputLen);
 extern void SHAKE_256_SqueezeEnd(SHAKE_256Context *cx, unsigned char *digest,
-				 unsigned int digestLen);
+                                 unsigned int digestLen);
 extern SECStatus SHAKE_256_HashBuf(unsigned char *dest, unsigned int dest_len,
-				   const unsigned char *src, PRUint32 src_length);
+                                   const unsigned char *src, PRUint32 src_length);
 extern SECStatus SHAKE_256_Hash(unsigned char *dest, unsigned int dest_len, const char *src);
 
 /****************************************
