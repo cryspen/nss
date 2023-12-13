@@ -10,7 +10,9 @@
 
 #include "blapi.h"
 
-#define FREEBL_VERSION 0x0326
+#include "kyber-params.h"
+
+#define FREEBL_VERSION 0x0327
 
 struct FREEBLVectorStr {
 
@@ -910,6 +912,14 @@ struct FREEBLVectorStr {
 
     /* Version 3.026 came to here */
 
+    SECStatus (*p_Kyber768_NewKey)(uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES], uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES]);
+
+    SECStatus (*p_Kyber768_Encapsulate)(uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES], uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES]);
+
+    SECStatus (*p_Kyber768_Decapsulate)(uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES], const uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES]);
+
+    /* Version 3.027 came to here */
+
     /* Add new function pointers at the end of this struct and bump
      * FREEBL_VERSION at the beginning of this file. */
 };
@@ -1011,4 +1021,12 @@ typedef SECStatus (*F_RC2_InitContext)(RC2Context *cx,
                                        unsigned int);
 
 typedef RC2Context *(*F_RC2_AllocateContext)(void);
+#endif
+
+#ifndef ENABLE_UNSTABLE_KYBER_API
+typedef SECStatus (*F_Kyber768_NewKey)(uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES], uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES]);
+
+typedef SECStatus (*F_Kyber768_Encapsulate)(uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES], uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES]);
+
+typedef SECStatus (*F_Kyber768_Decapsulate)(uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES], const uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES]);
 #endif

@@ -13,6 +13,10 @@
 #include "cmac.h"
 #include "alghmac.h"
 
+#ifdef ENABLE_UNSTABLE_KYBER_API
+#include "kyber-params.h"
+#endif
+
 SEC_BEGIN_PROTOS
 
 /*
@@ -1895,6 +1899,19 @@ extern int EC_GetPointSize(const ECParams *params);
  * use the internal table to get the size in bytes of a single EC coordinate
  */
 extern int EC_GetScalarSize(const ECParams *params);
+
+#ifdef ENABLE_UNSTABLE_KYBER_API
+/******************************************************
+** Kyber algorithms
+*/
+
+extern SECStatus Kyber768_NewKey(uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES], uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES]);
+
+extern SECStatus Kyber768_Encapsulate(uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES], uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES]);
+
+extern SECStatus Kyber768_Decapsulate(uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES], const uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES]);
+#endif
+
 
 SEC_END_PROTOS
 

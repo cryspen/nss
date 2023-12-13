@@ -38,7 +38,7 @@ if [[ -f nss/nspr.patch && "$ALLOW_NSPR_PATCH" == "1" ]]; then
 fi
 
 # Build with gyp.
-./nss/build.sh -g -v --enable-libpkix -Denable_draft_hpke=1 "$@"
+./nss/build.sh -g -v --enable-libpkix -Denable_draft_hpke=1 -Denable_unstable_kyber_api=1 "$@"
 
 # Package.
 7z a public/build/dist.7z dist

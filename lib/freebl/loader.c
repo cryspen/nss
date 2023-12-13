@@ -2828,3 +2828,29 @@ SHAKE_256_Hash(unsigned char *dest, PRUint32 dest_length, const char *src)
         return SECFailure;
     return (vector->p_SHAKE_256_Hash)(dest, dest_length, src);
 }
+
+/* ============== New for 3.0027 =============================== */
+
+SECStatus
+Kyber768_NewKey(uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES], uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES])
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_Kyber768_NewKey)(publicKey, privateKey);
+}
+
+SECStatus
+Kyber768_Encapsulate(uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES], uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES])
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_Kyber768_Encapsulate)(ciphertext, sharedSecret, publicKey);
+}
+
+SECStatus
+Kyber768_Decapsulate(uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES], const uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES])
+{
+    if (!vector && PR_SUCCESS != freebl_RunLoaderOnce())
+        return SECFailure;
+    return (vector->p_Kyber768_Decapsulate)(sharedSecret, privateKey, ciphertext);
+}

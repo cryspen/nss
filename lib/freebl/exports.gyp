@@ -38,7 +38,8 @@
             'ecl/eclt.h',
             'hmacct.h',
             'secmpi.h',
-            'secrng.h'
+            'secrng.h',
+            'kyber-params.h'
           ],
           'destination': '<(nss_private_dist_dir)/<(module)'
         }

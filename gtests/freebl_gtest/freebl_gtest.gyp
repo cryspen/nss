@@ -51,6 +51,14 @@
           '-msse2',
           ],
         }],
+      [ 'enable_unstable_kyber_api==1', {
+        'sources': [
+          'kyber_unittest.cc',
+         ],
+        'defines': [
+           'ENABLE_UNSTABLE_KYBER_API',
+         ],
+        }],
       ],
     },
   ],
