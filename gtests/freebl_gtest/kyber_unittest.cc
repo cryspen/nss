@@ -24,13 +24,21 @@ void kyber768_encapsulate_from_seed(
     const uint8_t seed[KYBER768_SHARED_SECRET_BYTES]);
 }
 
-void computeImplicitRejectionSharedSecret(uint8_t outSharedSecret[KYBER768_SHARED_SECRET_BYTES], uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES], uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES]) {
-    uint8_t hashInput[KYBER768_SHARED_SECRET_BYTES + KYBER768_CIPHERTEXT_BYTES];
+void computeImplicitRejectionValue(
+    uint8_t outSharedSecret[KYBER768_SHARED_SECRET_BYTES],
+    uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES],
+    uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES]) {
+  uint8_t hashInput[KYBER768_SHARED_SECRET_BYTES + KYBER768_CIPHERTEXT_BYTES];
 
-    memcpy(hashInput, privateKey + (KYBER768_PRIVATE_KEY_BYTES - KYBER768_SHARED_SECRET_BYTES), KYBER768_SHARED_SECRET_BYTES);
-    memcpy(hashInput + KYBER768_SHARED_SECRET_BYTES, ciphertext, KYBER768_CIPHERTEXT_BYTES);
+  memcpy(
+      hashInput,
+      privateKey + (KYBER768_PRIVATE_KEY_BYTES - KYBER768_SHARED_SECRET_BYTES),
+      KYBER768_SHARED_SECRET_BYTES);
+  memcpy(hashInput + KYBER768_SHARED_SECRET_BYTES, ciphertext,
+         KYBER768_CIPHERTEXT_BYTES);
 
-    SHAKE_256_HashBuf(outSharedSecret, KYBER768_SHARED_SECRET_BYTES, hashInput, sizeof(hashInput));
+  SHAKE_256_HashBuf(outSharedSecret, KYBER768_SHARED_SECRET_BYTES, hashInput,
+                    sizeof(hashInput));
 }
 
 class Kyber768Test : public ::testing::Test {};
@@ -108,8 +116,8 @@ TEST(Kyber768Test, InvalidPrivateKeyTest) {
   EXPECT_EQ(SECSuccess, rv);
 
   // Modifying the implicit rejection key will not cause decapsulation failure.
-  privateKey[pos % (KYBER768_PRIVATE_KEY_BYTES - KYBER768_SHARED_SECRET_BYTES)] ^=
-      (byte | 1);
+  privateKey[pos % (KYBER768_PRIVATE_KEY_BYTES -
+                    KYBER768_SHARED_SECRET_BYTES)] ^= (byte | 1);
 
   uint8_t sharedSecret2[KYBER768_SHARED_SECRET_BYTES];
   rv = Kyber768_Decapsulate(sharedSecret2, privateKey, ciphertext);
@@ -147,10 +155,10 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
   EXPECT_EQ(SECSuccess, rv);
 
   // Ensure implicit rejection occurred as expected
-  uint8_t implicitRejectionSharedSecret[KYBER768_SHARED_SECRET_BYTES];
-  computeImplicitRejectionSharedSecret(implicitRejectionSharedSecret, ciphertext, privateKey);
-  EXPECT_EQ(0,
-            memcmp(sharedSecret2, implicitRejectionSharedSecret, KYBER768_SHARED_SECRET_BYTES));
+  uint8_t implicitRejectionValue[KYBER768_SHARED_SECRET_BYTES];
+  computeImplicitRejectionValue(implicitRejectionValue, ciphertext, privateKey);
+  EXPECT_EQ(0, memcmp(sharedSecret2, implicitRejectionValue,
+                      KYBER768_SHARED_SECRET_BYTES));
 
   // Now, modify a random byte in the implicit rejection key and try
   // the decapsulation again. The result should be different.
@@ -172,10 +180,11 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
             memcmp(sharedSecret2, sharedSecret3, KYBER768_SHARED_SECRET_BYTES));
 
   // ... and implicit rejection should have occurred once again
-  uint8_t implicitRejectionSharedSecret1[KYBER768_SHARED_SECRET_BYTES];
-  computeImplicitRejectionSharedSecret(implicitRejectionSharedSecret1, ciphertext, privateKey);
-  EXPECT_EQ(0,
-            memcmp(sharedSecret3, implicitRejectionSharedSecret1, KYBER768_SHARED_SECRET_BYTES));
+  uint8_t implicitRejectionValue1[KYBER768_SHARED_SECRET_BYTES];
+  computeImplicitRejectionValue(implicitRejectionValue1, ciphertext,
+                                privateKey);
+  EXPECT_EQ(0, memcmp(sharedSecret3, implicitRejectionValue1,
+                      KYBER768_SHARED_SECRET_BYTES));
 }
 
 TEST(Kyber768Test, KnownAnswersTest) {
