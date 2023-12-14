@@ -34,8 +34,6 @@ extern "C" {
 #include "krml/lowstar_endianness.h"
 #include "krml/internal/target.h"
 
-typedef void *Hacl_SHA3_Vec256_disjoint4_4;
-
 typedef struct K____uint8_t___uint8_t__s {
     uint8_t *fst;
     uint8_t *snd;

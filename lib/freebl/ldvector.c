@@ -443,6 +443,7 @@ static const struct FREEBLVectorStr vector =
     (F_Kyber768_Encapsulate)FREEBL_Deprecated,
     (F_Kyber768_Decapsulate)FREEBL_Deprecated,
 #endif
+    /* End of version 3.027 */
 };
 
 const FREEBLVector*
