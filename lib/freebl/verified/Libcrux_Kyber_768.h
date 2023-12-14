@@ -28,39 +28,43 @@
 
 #include "internal/Libcrux_Kyber_768.h"
 
-#define KYBER768_KEY_GENERATION_SEED_SIZE 64
-#define KYBER768_ENCAPSULATION_SEED_SIZE 32
+#define PUBLIC_KEY_BYTES libcrux_kyber_kyber768_CPA_PKE_PUBLIC_KEY_SIZE_768
+#define PRIVATE_KEY_BYTES libcrux_kyber_kyber768_SECRET_KEY_SIZE_768
+#define KEY_GENERATION_SEED_BYTES libcrux_kyber_KEY_GENERATION_SEED_SIZE
+#define ENCAPSULATION_SEED_BYTES libcrux_kyber_constants_SHARED_SECRET_SIZE
+#define CIPHERTEXT_BYTES libcrux_kyber_kyber768_CPA_PKE_CIPHERTEXT_SIZE_768
+#define SHARED_SECRET_BYTES libcrux_kyber_constants_SHARED_SECRET_SIZE
 
 void
-Libcrux_Kyber_768_GenerateKeyPair(uint8_t* pk,
-                                  uint8_t* sk,
-                                  const uint8_t randomness[KYBER768_KEY_GENERATION_SEED_SIZE])
+Libcrux_Kyber_768_GenerateKeyPair(uint8_t publicKey[PUBLIC_KEY_BYTES],
+                                  uint8_t privateKey[PRIVATE_KEY_BYTES],
+                                  const uint8_t randomness[KEY_GENERATION_SEED_BYTES])
 {
     libcrux_kyber_types_KyberKeyPair___2400size_t_1184size_t result =
         libcrux_kyber_kyber768_generate_key_pair_768((uint8_t*)randomness);
 
-    memcpy(pk, result.pk, 1184);
-    memcpy(sk, result.sk, 2400);
+    memcpy(publicKey, result.pk, PUBLIC_KEY_BYTES);
+    memcpy(privateKey, result.sk, PRIVATE_KEY_BYTES);
 }
 
 void
-Libcrux_Kyber_768_Encapsulate(uint8_t* ct,
-                              uint8_t ss[32],
-                              const uint8_t* pk,
-                              const uint8_t randomness[32])
+Libcrux_Kyber_768_Encapsulate(uint8_t ciphertext[CIPHERTEXT_BYTES],
+                              uint8_t sharedSecret[SHARED_SECRET_BYTES],
+                              const uint8_t publicKey[PUBLIC_KEY_BYTES],
+                              const uint8_t randomness[SHARED_SECRET_BYTES])
 {
     K___libcrux_kyber_types_KyberCiphertext__1088size_t___uint8_t_32size_t_
-        result = libcrux_kyber_kyber768_encapsulate_768((uint8_t(*)[1184])pk, (uint8_t*)randomness);
-    memcpy(ct, result.fst, 1088);
-    memcpy(ss, result.snd, 32);
+        result = libcrux_kyber_kyber768_encapsulate_768((uint8_t(*)[PUBLIC_KEY_BYTES])publicKey, (uint8_t*)randomness);
+    memcpy(ciphertext, result.fst, CIPHERTEXT_BYTES);
+    memcpy(sharedSecret, result.snd, SHARED_SECRET_BYTES);
 }
 
 void
-Libcrux_Kyber_768_Decapsulate(uint8_t ss[32],
-                              const uint8_t* ct,
-                              const uint8_t* sk)
+Libcrux_Kyber_768_Decapsulate(uint8_t sharedSecret[SHARED_SECRET_BYTES],
+                              const uint8_t ciphertext[CIPHERTEXT_BYTES],
+                              const uint8_t privateKey[PRIVATE_KEY_BYTES])
 {
-    libcrux_kyber_kyber768_decapsulate_768((uint8_t(*)[2400])sk, (uint8_t(*)[1088])ct, ss);
+    libcrux_kyber_kyber768_decapsulate_768((uint8_t(*)[PRIVATE_KEY_BYTES])privateKey, (uint8_t(*)[CIPHERTEXT_BYTES])ciphertext, sharedSecret);
 }
 
 #endif

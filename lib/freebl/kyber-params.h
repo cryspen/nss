@@ -5,7 +5,7 @@
  *
  * https://github.com/pq-crystals/kyber/commit/1ee0baa2100a545ac852edea2e4441b8f742814d
  *
- * Contained herein are definitions for the Kyber function declarations in
+ * This file contains constant definitions for the Kyber function declarations in
  * blapi.h and their corresponding definitions in kyber768.c. Since these
  * (and only these) values are needed both in blapi.h and kyber768.c, they
  * have been moved into a separate header.

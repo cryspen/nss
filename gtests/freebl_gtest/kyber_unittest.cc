@@ -7,7 +7,7 @@
 #include "blapi.h"
 #include "kat/kyber768_kat.h"
 
-#define KYBER_SHARED_SECRET_SIZE 32
+#define KYBER768_SHARED_SECRET_BYTES 32
 
 namespace nss_test {
 
@@ -15,7 +15,7 @@ extern "C" {
 void kyber768_new_key_from_seed(
     uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES],
     uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES],
-    const uint8_t seed[KYBER768_KEY_GENERATION_SEED_SIZE]);
+    const uint8_t seed[KYBER768_KEY_GENERATION_SEED_BYTES]);
 
 void kyber768_encapsulate_from_seed(
     uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES],
@@ -108,7 +108,7 @@ TEST(Kyber768Test, InvalidPrivateKeyTest) {
   EXPECT_EQ(SECSuccess, rv);
 
   // Modifying the implicit rejection key will not cause decapsulation failure.
-  privateKey[pos % (KYBER768_PRIVATE_KEY_BYTES - KYBER_SHARED_SECRET_SIZE)] ^=
+  privateKey[pos % (KYBER768_PRIVATE_KEY_BYTES - KYBER768_SHARED_SECRET_BYTES)] ^=
       (byte | 1);
 
   uint8_t sharedSecret2[KYBER768_SHARED_SECRET_BYTES];
@@ -160,8 +160,8 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
   rv = RNG_GenerateGlobalRandomBytes((uint8_t*)&byte, sizeof(byte));
   EXPECT_EQ(SECSuccess, rv);
 
-  pos = (KYBER768_PRIVATE_KEY_BYTES - KYBER_SHARED_SECRET_SIZE) +
-        (pos % KYBER_SHARED_SECRET_SIZE);
+  pos = (KYBER768_PRIVATE_KEY_BYTES - KYBER768_SHARED_SECRET_BYTES) +
+        (pos % KYBER768_SHARED_SECRET_BYTES);
   privateKey[pos] ^= (byte | 1);
 
   uint8_t sharedSecret3[KYBER768_SHARED_SECRET_BYTES];
