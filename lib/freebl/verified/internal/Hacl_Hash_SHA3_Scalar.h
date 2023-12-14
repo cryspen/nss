@@ -22,6 +22,13 @@
  * SOFTWARE.
  */
 
+#ifndef __internal_Hacl_Hash_SHA3_Scalar_H
+#define __internal_Hacl_Hash_SHA3_Scalar_H
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 static const uint32_t
     Hacl_Impl_SHA3_Vec_keccak_rotc[24U] = {
         1U, 3U, 6U, 10U, 15U, 21U, 28U, 36U, 45U, 55U, 2U, 14U, 27U, 41U, 56U, 8U, 25U, 43U, 62U, 18U,
@@ -43,3 +50,10 @@ static const uint64_t
         0x8000000000008002ULL, 0x8000000000000080ULL, 0x000000000000800aULL, 0x800000008000000aULL,
         0x8000000080008081ULL, 0x8000000000008080ULL, 0x0000000080000001ULL, 0x8000000080008008ULL
     };
+
+#if defined(__cplusplus)
+}
+#endif
+
+#define __internal_Hacl_Hash_SHA3_Scalar_H_DEFINED
+#endif
