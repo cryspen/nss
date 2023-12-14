@@ -154,7 +154,7 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
             memcmp(sharedSecret2, sharedSecret3, KYBER768_SHARED_SECRET_BYTES));
 }
 
-/*TEST(Kyber768Test, KnownAnswersTest) {
+TEST(Kyber768Test, KnownAnswersTest) {
   uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES];
   uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES];
   uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES];
@@ -180,6 +180,6 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
     EXPECT_EQ(
         0, memcmp(sharedSecret, sharedSecret2, KYBER768_SHARED_SECRET_BYTES));
   }
-}*/
+}
 
 }  // nss_test
