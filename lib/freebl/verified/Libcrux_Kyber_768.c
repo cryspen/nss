@@ -514,14 +514,14 @@ libcrux_kyber_ntt_ntt_at_layer(size_t* zeta_i,
       size_t round = uu____0.f0;
       zeta_i[0U] = zeta_i[0U] + (size_t)1U;
       size_t offset = round * step * (size_t)2U;
-      core_ops_range_Range__size_t iter =
+      core_ops_range_Range__size_t iter1 =
         core_iter_traits_collect__I__into_iter(
           ((core_ops_range_Range__size_t){ .start = offset,
                                            .end = offset + step }),
           core_ops_range_Range__size_t);
       while (true) {
         core_option_Option__size_t uu____1 =
-          core_iter_range__core__ops__range__Range_A__3__next(&iter, size_t);
+          core_iter_range__core__ops__range__Range_A__3__next(&iter1, size_t);
         if (uu____1.tag == core_option_None)
           break;
         else {
@@ -1008,14 +1008,14 @@ libcrux_kyber_ntt_invert_ntt_at_layer(size_t* zeta_i,
       size_t round = uu____0.f0;
       zeta_i[0U] = zeta_i[0U] - (size_t)1U;
       size_t offset = round * step * (size_t)2U;
-      core_ops_range_Range__size_t iter =
+      core_ops_range_Range__size_t iter1 =
         core_iter_traits_collect__I__into_iter(
           ((core_ops_range_Range__size_t){ .start = offset,
                                            .end = offset + step }),
           core_ops_range_Range__size_t);
       while (true) {
         core_option_Option__size_t uu____1 =
-          core_iter_range__core__ops__range__Range_A__3__next(&iter, size_t);
+          core_iter_range__core__ops__range__Range_A__3__next(&iter1, size_t);
         if (uu____1.tag == core_option_None)
           break;
         else {
@@ -2557,6 +2557,10 @@ libcrux_kyber_hash_functions_XOFx4___3size_t(uint8_t input[3U][34U],
     uu____26 = out;
     uu____27 = uu____26[uu____25];
     uu____27 = uu____24;
+
+    (void)uu____27;
+    (void)uu____29;
+    (void)uu____31;
   }
   uint8_t uu____40[3U][840U];
   memcpy(uu____40, out, (size_t)3U * sizeof(uint8_t[840U]));
@@ -2598,14 +2602,14 @@ libcrux_kyber_matrix_sample_matrix_A___3size_t(uint8_t seed[34U],
       uint8_t seeds[3U][34U];
       for (size_t i = (size_t)0U; i < (size_t)3U; i++)
         memcpy(seeds[i], uu____1, (size_t)34U * sizeof(uint8_t));
-      core_ops_range_Range__size_t iter0 =
+      core_ops_range_Range__size_t iter1 =
         core_iter_traits_collect__I__into_iter(
           ((core_ops_range_Range__size_t){ .start = (size_t)0U,
                                            .end = (size_t)3U }),
           core_ops_range_Range__size_t);
       while (true) {
         core_option_Option__size_t uu____2 =
-          core_iter_range__core__ops__range__Range_A__3__next(&iter0, size_t);
+          core_iter_range__core__ops__range__Range_A__3__next(&iter1, size_t);
         if (uu____2.tag == core_option_None)
           break;
         else {
@@ -2815,12 +2819,12 @@ libcrux_kyber_matrix_compute_As_plus_e___3size_t(int32_t (*matrix_A)[3U][256U],
       lit.start = (size_t)0U;
       lit.end = core_slice___Slice_T___len(
         Eurydice_array_to_slice((size_t)3U, row, int32_t[256U]), int32_t[256U]);
-      core_ops_range_Range__size_t iter =
+      core_ops_range_Range__size_t iter1 =
         core_iter_traits_collect__I__into_iter(lit,
                                                core_ops_range_Range__size_t);
       while (true) {
         core_option_Option__size_t uu____1 =
-          core_iter_range__core__ops__range__Range_A__3__next(&iter, size_t);
+          core_iter_range__core__ops__range__Range_A__3__next(&iter1, size_t);
         if (uu____1.tag == core_option_None)
           break;
         else {
@@ -2893,10 +2897,10 @@ libcrux_kyber_ind_cpa_serialize_secret_key___3size_t_1152size_t(
                  libcrux_kyber_constants_BYTES_PER_RING_ELEMENT }),
         uint8_t,
         core_ops_range_Range__size_t);
-      uint8_t ret[384U];
+      uint8_t ret1[384U];
       libcrux_kyber_serialize_serialize_uncompressed_ring_element(re, ret);
       core_slice___Slice_T___copy_from_slice(
-        uu____1, Eurydice_array_to_slice((size_t)384U, ret, uint8_t), uint8_t);
+        uu____1, Eurydice_array_to_slice((size_t)384U, ret1, uint8_t), uint8_t);
     }
   }
   uint8_t uu____2[1152U];
@@ -3320,12 +3324,12 @@ libcrux_kyber_matrix_compute_vector_u___3size_t(int32_t (*a_as_ntt)[3U][256U],
       lit.start = (size_t)0U;
       lit.end = core_slice___Slice_T___len(
         Eurydice_array_to_slice((size_t)3U, row, int32_t[256U]), int32_t[256U]);
-      core_ops_range_Range__size_t iter =
+      core_ops_range_Range__size_t iter1 =
         core_iter_traits_collect__I__into_iter(lit,
                                                core_ops_range_Range__size_t);
       while (true) {
         core_option_Option__size_t uu____1 =
-          core_iter_range__core__ops__range__Range_A__3__next(&iter, size_t);
+          core_iter_range__core__ops__range__Range_A__3__next(&iter1, size_t);
         if (uu____1.tag == core_option_None)
           break;
         else {
@@ -3642,11 +3646,11 @@ libcrux_kyber_ind_cpa_compress_then_serialize_u___3size_t_960size_t_10size_t_320
           .end = (i + (size_t)1U) * ((size_t)960U / (size_t)3U) }),
         uint8_t,
         core_ops_range_Range__size_t);
-      uint8_t ret[320U];
+      uint8_t ret1[320U];
       libcrux_kyber_serialize_compress_then_serialize_ring_element_u___10size_t_320size_t(
         re, ret);
       core_slice___Slice_T___copy_from_slice(
-        uu____1, Eurydice_array_to_slice((size_t)320U, ret, uint8_t), uint8_t);
+        uu____1, Eurydice_array_to_slice((size_t)320U, ret1, uint8_t), uint8_t);
     }
   }
   uint8_t uu____2[960U];

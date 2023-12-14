@@ -21,19 +21,19 @@ bool libcrux_platform_simd256_support(void) {
     return false;
 }
 
-inline void
+static inline void
 libcrux_digest_shake256(size_t len, Eurydice_slice input, uint8_t* out)
 {
   Hacl_SHA3_shake256_hacl(input.len, input.ptr, (uint32_t)len, out);
 }
 
-inline void
+static inline void
 libcrux_digest_shake128(size_t len, Eurydice_slice input, uint8_t* out)
 {
   Hacl_SHA3_shake128_hacl(input.len, input.ptr, (uint32_t)len, out);
 }
 
-inline __uint8_t_840size_t__uint8_t_840size_t__uint8_t_840size_t__uint8_t_840size_t_
+static inline __uint8_t_840size_t__uint8_t_840size_t__uint8_t_840size_t__uint8_t_840size_t_
 libcrux_digest_shake128x4(size_t len,
                           Eurydice_slice input0,
                           Eurydice_slice input1,
@@ -67,13 +67,13 @@ libcrux_digest_shake128x4(size_t len,
 #endif
 }
 
-inline void
+static inline void
 libcrux_digest_sha3_512(Eurydice_slice x0, uint8_t x1[64U])
 {
   Hacl_SHA3_sha3_512((uint32_t)x0.len, x0.ptr, x1);
 }
 
-inline void
+static inline void
 libcrux_digest_sha3_256(Eurydice_slice x0, uint8_t x1[32U])
 {
   Hacl_SHA3_sha3_256((uint32_t)x0.len, x0.ptr, x1);
