@@ -2450,7 +2450,7 @@ libcrux_kyber_hash_functions_XOFx4___3size_t(uint8_t input[3U][34U],
     if (!libcrux_platform_simd256_support())
         uu____0 = true;
     else
-        uu____0 = !false;
+        uu____0 = false;
     if (uu____0) {
         core_ops_range_Range__size_t iter = core_iter_traits_collect__I__into_iter(
             ((core_ops_range_Range__size_t){ .start = (size_t)0U,
