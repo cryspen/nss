@@ -216,14 +216,14 @@ libcrux_kyber_constant_time_ops_select_shared_secret_in_constant_time(
     uint8_t selector,
     uint8_t ret[32U]);
 
-//extern void
-//libcrux_digest_sha3_512(Eurydice_slice x0, uint8_t x1[64U]);
+// extern void
+// libcrux_digest_sha3_512(Eurydice_slice x0, uint8_t x1[64U]);
 
 void
 libcrux_kyber_hash_functions_G(Eurydice_slice input, uint8_t ret[64U]);
 
-//extern void
-//libcrux_digest_sha3_256(Eurydice_slice x0, uint8_t x1[32U]);
+// extern void
+// libcrux_digest_sha3_256(Eurydice_slice x0, uint8_t x1[32U]);
 
 void
 libcrux_kyber_hash_functions_H(Eurydice_slice input, uint8_t ret[32U]);

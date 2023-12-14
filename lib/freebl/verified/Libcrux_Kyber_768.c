@@ -100,9 +100,9 @@ libcrux_kyber_arithmetic_to_unsigned_representative(int32_t fe)
 }
 
 void
-    libcrux_kyber_arithmetic__libcrux_kyber__arithmetic__PolynomialRingElement_1__clone(
-        int32_t (*self)[256U],
-        int32_t ret[256U])
+libcrux_kyber_arithmetic__libcrux_kyber__arithmetic__PolynomialRingElement_1__clone(
+    int32_t (*self)[256U],
+    int32_t ret[256U])
 {
     memcpy(ret, self[0U], (size_t)256U * sizeof(int32_t));
 }
@@ -876,9 +876,9 @@ libcrux_kyber_ntt_ntt_multiply_binomials(K___int32_t_int32_t _,
 }
 
 void
-    libcrux_kyber_ntt_ntt_multiply(int32_t (*lhs)[256U],
-                                   int32_t (*rhs)[256U],
-                                   int32_t ret[256U])
+libcrux_kyber_ntt_ntt_multiply(int32_t (*lhs)[256U],
+                               int32_t (*rhs)[256U],
+                               int32_t ret[256U])
 {
     int32_t out[256U];
     memcpy(
@@ -2727,10 +2727,10 @@ libcrux_kyber_arithmetic_add_to_ring_element___3size_t(int32_t lhs[256U],
 }
 
 void
-    libcrux_kyber_matrix_compute_As_plus_e___3size_t(int32_t (*matrix_A)[3U][256U],
-                                                     int32_t (*s_as_ntt)[256U],
-                                                     int32_t (*error_as_ntt)[256U],
-                                                     int32_t ret[3U][256U])
+libcrux_kyber_matrix_compute_As_plus_e___3size_t(int32_t (*matrix_A)[3U][256U],
+                                                 int32_t (*s_as_ntt)[256U],
+                                                 int32_t (*error_as_ntt)[256U],
+                                                 int32_t ret[3U][256U])
 {
     int32_t result[3U][256U];
     for (size_t i = (size_t)0U; i < (size_t)3U; i++)
@@ -3114,8 +3114,8 @@ libcrux_kyber_ind_cpa_into_padded_array___64size_t(Eurydice_slice slice,
 }
 
 uint8_t*
-    libcrux_kyber_types__libcrux_kyber__types__KyberPublicKey_SIZE__18__as_slice___1184size_t(
-        uint8_t (*self)[1184U])
+libcrux_kyber_types__libcrux_kyber__types__KyberPublicKey_SIZE__18__as_slice___1184size_t(
+    uint8_t (*self)[1184U])
 {
     return self[0U];
 }
@@ -3232,10 +3232,10 @@ libcrux_kyber_ntt_invert_ntt_montgomery___3size_t(int32_t re[256U],
 }
 
 void
-    libcrux_kyber_matrix_compute_vector_u___3size_t(int32_t (*a_as_ntt)[3U][256U],
-                                                    int32_t (*r_as_ntt)[256U],
-                                                    int32_t (*error_1)[256U],
-                                                    int32_t ret[3U][256U])
+libcrux_kyber_matrix_compute_vector_u___3size_t(int32_t (*a_as_ntt)[3U][256U],
+                                                int32_t (*r_as_ntt)[256U],
+                                                int32_t (*error_1)[256U],
+                                                int32_t ret[3U][256U])
 {
     int32_t result[3U][256U];
     for (size_t i = (size_t)0U; i < (size_t)3U; i++)
@@ -3313,11 +3313,11 @@ void
 }
 
 void
-    libcrux_kyber_matrix_compute_ring_element_v___3size_t(int32_t (*t_as_ntt)[256U],
-                                                          int32_t (*r_as_ntt)[256U],
-                                                          int32_t (*error_2)[256U],
-                                                          int32_t (*message)[256U],
-                                                          int32_t ret[256U])
+libcrux_kyber_matrix_compute_ring_element_v___3size_t(int32_t (*t_as_ntt)[256U],
+                                                      int32_t (*r_as_ntt)[256U],
+                                                      int32_t (*error_2)[256U],
+                                                      int32_t (*message)[256U],
+                                                      int32_t ret[256U])
 {
     int32_t result[256U];
     memcpy(
@@ -3837,9 +3837,9 @@ libcrux_kyber_ind_cpa_encrypt___3size_t_1088size_t_1152size_t_960size_t_128size_
 }
 
 K___libcrux_kyber_types_KyberCiphertext__1088size_t___uint8_t_32size_t_
-    libcrux_kyber_encapsulate___3size_t_1088size_t_1184size_t_1152size_t_960size_t_128size_t_10size_t_4size_t_320size_t_2size_t_128size_t_2size_t_128size_t(
-        uint8_t (*public_key)[1184U],
-        uint8_t randomness[32U])
+libcrux_kyber_encapsulate___3size_t_1088size_t_1184size_t_1152size_t_960size_t_128size_t_10size_t_4size_t_320size_t_2size_t_128size_t_2size_t_128size_t(
+    uint8_t (*public_key)[1184U],
+    uint8_t randomness[32U])
 {
     uint8_t to_hash[64U];
     libcrux_kyber_ind_cpa_into_padded_array___64size_t(
@@ -3906,8 +3906,8 @@ K___libcrux_kyber_types_KyberCiphertext__1088size_t___uint8_t_32size_t_
 }
 
 K___libcrux_kyber_types_KyberCiphertext__1088size_t___uint8_t_32size_t_
-    libcrux_kyber_kyber768_encapsulate_768(uint8_t (*public_key)[1184U],
-                                           uint8_t randomness[32U])
+libcrux_kyber_kyber768_encapsulate_768(uint8_t (*public_key)[1184U],
+                                       uint8_t randomness[32U])
 {
     uint8_t(*uu____0)[1184U] = public_key;
     uint8_t uu____1[32U];
@@ -3917,9 +3917,9 @@ K___libcrux_kyber_types_KyberCiphertext__1088size_t___uint8_t_32size_t_
 }
 
 K___Eurydice_slice_uint8_t_Eurydice_slice_uint8_t
-    libcrux_kyber_types__libcrux_kyber__types__KyberPrivateKey_SIZE__12__split_at___2400size_t(
-        uint8_t (*self)[2400U],
-        size_t mid)
+libcrux_kyber_types__libcrux_kyber__types__KyberPrivateKey_SIZE__12__split_at___2400size_t(
+    uint8_t (*self)[2400U],
+    size_t mid)
 {
     return core_slice___Slice_T___split_at(
         Eurydice_array_to_slice((size_t)2400U, self[0U], uint8_t), mid, uint8_t);
@@ -4071,10 +4071,10 @@ libcrux_kyber_ind_cpa_deserialize_secret_key___3size_t(
 }
 
 void
-    libcrux_kyber_matrix_compute_message___3size_t(int32_t (*v)[256U],
-                                                   int32_t (*secret_as_ntt)[256U],
-                                                   int32_t (*u_as_ntt)[256U],
-                                                   int32_t ret[256U])
+libcrux_kyber_matrix_compute_message___3size_t(int32_t (*v)[256U],
+                                               int32_t (*secret_as_ntt)[256U],
+                                               int32_t (*u_as_ntt)[256U],
+                                               int32_t ret[256U])
 {
     int32_t result[256U];
     memcpy(
@@ -4170,8 +4170,8 @@ libcrux_kyber_ind_cpa_into_padded_array___1120size_t(Eurydice_slice slice,
 }
 
 Eurydice_slice
-    libcrux_kyber_types__libcrux_kyber__types__KyberCiphertext_SIZE__1__as_ref___1088size_t(
-        uint8_t (*self)[1088U])
+libcrux_kyber_types__libcrux_kyber__types__KyberCiphertext_SIZE__1__as_ref___1088size_t(
+    uint8_t (*self)[1088U])
 {
     return Eurydice_array_to_slice((size_t)1088U, self[0U], uint8_t);
 }
@@ -4211,10 +4211,10 @@ libcrux_kyber_constant_time_ops_compare_ciphertexts_in_constant_time___1088size_
 }
 
 void
-    libcrux_kyber_decapsulate___3size_t_2400size_t_1152size_t_1184size_t_1088size_t_1152size_t_960size_t_128size_t_10size_t_4size_t_320size_t_2size_t_128size_t_2size_t_128size_t_1120size_t(
-        uint8_t (*secret_key)[2400U],
-        uint8_t (*ciphertext)[1088U],
-        uint8_t ret[32U])
+libcrux_kyber_decapsulate___3size_t_2400size_t_1152size_t_1184size_t_1088size_t_1152size_t_960size_t_128size_t_10size_t_4size_t_320size_t_2size_t_128size_t_2size_t_128size_t_1120size_t(
+    uint8_t (*secret_key)[2400U],
+    uint8_t (*ciphertext)[1088U],
+    uint8_t ret[32U])
 {
     K___Eurydice_slice_uint8_t_Eurydice_slice_uint8_t uu____0 =
         libcrux_kyber_types__libcrux_kyber__types__KyberPrivateKey_SIZE__12__split_at___2400size_t(
@@ -4297,9 +4297,9 @@ void
 }
 
 void
-    libcrux_kyber_kyber768_decapsulate_768(uint8_t (*secret_key)[2400U],
-                                           uint8_t (*ciphertext)[1088U],
-                                           uint8_t ret[32U])
+libcrux_kyber_kyber768_decapsulate_768(uint8_t (*secret_key)[2400U],
+                                       uint8_t (*ciphertext)[1088U],
+                                       uint8_t ret[32U])
 {
     uint8_t ret0[32U];
     libcrux_kyber_decapsulate___3size_t_2400size_t_1152size_t_1184size_t_1088size_t_1152size_t_960size_t_128size_t_10size_t_4size_t_320size_t_2size_t_128size_t_2size_t_128size_t_1120size_t(
