@@ -41,7 +41,7 @@ Libcrux_Kyber_768_GenerateKeyPair(uint8_t publicKey[PUBLIC_KEY_BYTES],
                                   const uint8_t randomness[KEY_GENERATION_SEED_BYTES])
 {
     libcrux_kyber_types_KyberKeyPair___2400size_t_1184size_t result =
-        libcrux_kyber_kyber768_generate_key_pair_768((uint8_t*)randomness);
+        libcrux_kyber_kyber768_generate_key_pair_768((uint8_t *)randomness);
 
     memcpy(publicKey, result.pk, PUBLIC_KEY_BYTES);
     memcpy(privateKey, result.sk, PRIVATE_KEY_BYTES);
@@ -54,7 +54,7 @@ Libcrux_Kyber_768_Encapsulate(uint8_t ciphertext[CIPHERTEXT_BYTES],
                               const uint8_t randomness[SHARED_SECRET_BYTES])
 {
     K___libcrux_kyber_types_KyberCiphertext__1088size_t___uint8_t_32size_t_
-        result = libcrux_kyber_kyber768_encapsulate_768((uint8_t(*)[PUBLIC_KEY_BYTES])publicKey, (uint8_t*)randomness);
+        result = libcrux_kyber_kyber768_encapsulate_768((uint8_t(*)[PUBLIC_KEY_BYTES])publicKey, (uint8_t *)randomness);
     memcpy(ciphertext, result.fst, CIPHERTEXT_BYTES);
     memcpy(sharedSecret, result.snd, SHARED_SECRET_BYTES);
 }
