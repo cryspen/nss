@@ -96,4 +96,5 @@ libcrux_digest_sha3_256(Eurydice_slice x0, uint8_t x1[32U])
     Hacl_SHA3_sha3_256((uint32_t)x0.len, x0.ptr, x1);
 }
 
-#endif //__Libcrux_Kyber_Hash_Functions_H
+#define __Libcrux_Kyber_Hash_Functions_H_DEFINED
+#endif

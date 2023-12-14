@@ -24,6 +24,10 @@
 #ifndef __Libcrux_Kyber_768_H
 #define __Libcrux_Kyber_768_H
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include <string.h>
 
 #include "internal/Libcrux_Kyber_768.h"
@@ -67,4 +71,9 @@ Libcrux_Kyber_768_Decapsulate(uint8_t sharedSecret[SHARED_SECRET_BYTES],
     libcrux_kyber_kyber768_decapsulate_768((uint8_t(*)[PRIVATE_KEY_BYTES])privateKey, (uint8_t(*)[CIPHERTEXT_BYTES])ciphertext, sharedSecret);
 }
 
+#if defined(__cplusplus)
+}
+#endif
+
+#define __Libcrux_Kyber_768_H_DEFINED
 #endif

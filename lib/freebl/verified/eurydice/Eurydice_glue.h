@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __Eurydice_glue_H
+#define __Eurydice_glue_H
 
 #include <inttypes.h>
 #include <stdlib.h>
@@ -188,3 +189,6 @@ typedef struct {
 #define core_slice_iter_Iter Eurydice_slice_iterator
 #define core_slice_iter__core__slice__iter__Iter__a__T__181__next(iter, t) \
     (((iter)->index == (iter)->s.len) ? ((core_option_Option___##t##_){ .tag = core_option_None }) : ((core_option_Option___##t##_){ .tag = core_option_Some, .f0 = ((iter)->index++, &((t *)((iter)->s.ptr))[(iter)->index - 1]) }))
+
+#define __Eurydice_glue_H_DEFINED
+#endif
