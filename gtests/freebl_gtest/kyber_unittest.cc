@@ -13,15 +13,24 @@ namespace nss_test {
 
 extern "C" {
 void kyber768_new_key_from_seed(
-    uint8_t pk[KYBER768_PUBLIC_KEY_BYTES],
-    uint8_t sk[KYBER768_PRIVATE_KEY_BYTES],
+    uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES],
+    uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES],
     const uint8_t seed[KYBER768_KEY_GENERATION_SEED_SIZE]);
 
 void kyber768_encapsulate_from_seed(
-    uint8_t out_ciphertext[KYBER768_CIPHERTEXT_BYTES],
-    uint8_t ss[KYBER768_SHARED_SECRET_BYTES],
-    const uint8_t pk[KYBER768_PUBLIC_KEY_BYTES],
+    uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES],
+    uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES],
+    const uint8_t publicKey[KYBER768_PUBLIC_KEY_BYTES],
     const uint8_t seed[KYBER768_SHARED_SECRET_BYTES]);
+}
+
+void computeImplicitRejectionSharedSecret(uint8_t outSharedSecret[KYBER768_SHARED_SECRET_BYTES], uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES], uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES]) {
+    uint8_t hashInput[KYBER768_SHARED_SECRET_BYTES + KYBER768_CIPHERTEXT_BYTES];
+
+    memcpy(hashInput, privateKey + (KYBER768_PRIVATE_KEY_BYTES - KYBER768_SHARED_SECRET_BYTES), KYBER768_SHARED_SECRET_BYTES);
+    memcpy(hashInput + KYBER768_SHARED_SECRET_BYTES, ciphertext, KYBER768_CIPHERTEXT_BYTES);
+
+    SHAKE_256_HashBuf(outSharedSecret, KYBER768_SHARED_SECRET_BYTES, hashInput, sizeof(hashInput));
 }
 
 class Kyber768Test : public ::testing::Test {};
@@ -137,6 +146,12 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
   rv = Kyber768_Decapsulate(sharedSecret2, privateKey, ciphertext);
   EXPECT_EQ(SECSuccess, rv);
 
+  // Ensure implicit rejection occurred as expected
+  uint8_t implicitRejectionSharedSecret[KYBER768_SHARED_SECRET_BYTES];
+  computeImplicitRejectionSharedSecret(implicitRejectionSharedSecret, ciphertext, privateKey);
+  EXPECT_EQ(0,
+            memcmp(sharedSecret2, implicitRejectionSharedSecret, KYBER768_SHARED_SECRET_BYTES));
+
   // Now, modify a random byte in the implicit rejection key and try
   // the decapsulation again. The result should be different.
   rv = RNG_GenerateGlobalRandomBytes((uint8_t*)&pos, sizeof(pos));
@@ -155,6 +170,12 @@ TEST(Kyber768Test, DecapsulationWithModifiedRejectionKeyTest) {
 
   EXPECT_NE(0,
             memcmp(sharedSecret2, sharedSecret3, KYBER768_SHARED_SECRET_BYTES));
+
+  // ... and implicit rejection should have occurred once again
+  uint8_t implicitRejectionSharedSecret1[KYBER768_SHARED_SECRET_BYTES];
+  computeImplicitRejectionSharedSecret(implicitRejectionSharedSecret1, ciphertext, privateKey);
+  EXPECT_EQ(0,
+            memcmp(sharedSecret3, implicitRejectionSharedSecret1, KYBER768_SHARED_SECRET_BYTES));
 }
 
 TEST(Kyber768Test, KnownAnswersTest) {
