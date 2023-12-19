@@ -22,7 +22,7 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # Build.
-nss/build.sh -g -v --enable-libpkix -Denable_draft_hpke=1 "$@"
+nss/build.sh -g -v --enable-libpkix -Denable_draft_hpke=1 -Denable_unstable_kyber_api=1 "$@"
 
 # Package.
 if [[ $(uname) = "Darwin" ]]; then

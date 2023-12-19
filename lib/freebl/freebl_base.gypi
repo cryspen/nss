@@ -204,6 +204,15 @@
         'SEED_ONLY_DEV_URANDOM',
       ]
     }],
+    [ 'enable_unstable_kyber_api==1', {
+      'sources': [
+        'kyber768.c',
+        'verified/Libcrux_Kyber_768.c',
+      ],
+      'defines': [
+        'ENABLE_UNSTABLE_KYBER_API',
+      ],
+    }],
     [ 'OS=="mac"', {
       'conditions': [
         [ 'target_arch=="ia32"', {

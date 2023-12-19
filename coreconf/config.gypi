@@ -144,6 +144,7 @@
     'force_integrated_as%': 0,
     'disable_ckbi%': 0,
     'ppc_abi%': 0,
+    'enable_unstable_kyber_api%': 0,
   },
   'target_defaults': {
     # Settings specific to targets should go here.
