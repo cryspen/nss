@@ -20,3 +20,4 @@ fuzz/corpus
 fuzz/out
 .chk
 cmd/dbtool/sdb.c
+.vscode/settings.json
