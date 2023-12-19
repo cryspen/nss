@@ -184,7 +184,7 @@
             'verified/Hacl_Poly1305_256.c',
             'verified/Hacl_Chacha20_Vec256.c',
             'verified/Hacl_Chacha20Poly1305_256.c',
-            'verified/Hacl_Hash_SHA3_Vec256.c',
+            'verified/Hacl_Hash_SHA3_Simd256.c',
           ],
         }],
       ],
