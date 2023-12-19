@@ -8,7 +8,7 @@
 #ifndef __Eurydice_H
 #define __Eurydice_H
 
-#include "Eurydice_glue.h"
+#include "eurydice_glue.h"
 
 typedef struct core_ops_range_Range__size_t_s
 {

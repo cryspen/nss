@@ -8,7 +8,7 @@
 #ifndef __internal_core_H
 #define __internal_core_H
 
-#include "../eurydice/Eurydice_glue.h"
+#include "eurydice_glue.h"
 
 static inline int64_t core_convert_num__i64_59__from(int32_t x0);
 

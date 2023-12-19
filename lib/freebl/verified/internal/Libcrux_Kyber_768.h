@@ -34,8 +34,8 @@
 extern "C" {
 #endif
 
-#include "eurydice/Eurydice.h"
-#include "eurydice/Eurydice_glue.h"
+#include "Eurydice.h"
+#include "eurydice_glue.h"
 
 
 #define LIBCRUX_KYBER_CONSTANTS_FIELD_MODULUS ((int32_t)3329)
