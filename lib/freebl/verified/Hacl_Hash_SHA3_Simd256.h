@@ -22,7 +22,6 @@
  * SOFTWARE.
  */
 
-
 #ifndef __Hacl_Hash_SHA3_Simd256_H
 #define __Hacl_Hash_SHA3_Simd256_H
 
@@ -35,40 +34,33 @@ extern "C" {
 #include "krml/lowstar_endianness.h"
 #include "krml/internal/target.h"
 
-typedef struct K____uint8_t___uint8_t__s
-{
-  uint8_t *fst;
-  uint8_t *snd;
-}
-K____uint8_t___uint8_t_;
+typedef struct K____uint8_t___uint8_t__s {
+    uint8_t *fst;
+    uint8_t *snd;
+} K____uint8_t___uint8_t_;
 
-typedef struct K____uint8_t__K____uint8_t___uint8_t__s
-{
-  uint8_t *fst;
-  K____uint8_t___uint8_t_ snd;
-}
-K____uint8_t__K____uint8_t___uint8_t_;
+typedef struct K____uint8_t__K____uint8_t___uint8_t__s {
+    uint8_t *fst;
+    K____uint8_t___uint8_t_ snd;
+} K____uint8_t__K____uint8_t___uint8_t_;
 
-typedef struct K____uint8_t___uint8_t____K____uint8_t___uint8_t__s
-{
-  uint8_t *fst;
-  K____uint8_t__K____uint8_t___uint8_t_ snd;
-}
-K____uint8_t___uint8_t____K____uint8_t___uint8_t_;
+typedef struct K____uint8_t___uint8_t____K____uint8_t___uint8_t__s {
+    uint8_t *fst;
+    K____uint8_t__K____uint8_t___uint8_t_ snd;
+} K____uint8_t___uint8_t____K____uint8_t___uint8_t_;
 
 void
 Hacl_Hash_SHA3_Simd256_shake128(
-  uint32_t inputByteLen,
-  uint8_t *input0,
-  uint8_t *input1,
-  uint8_t *input2,
-  uint8_t *input3,
-  uint32_t outputByteLen,
-  uint8_t *output0,
-  uint8_t *output1,
-  uint8_t *output2,
-  uint8_t *output3
-);
+    uint32_t inputByteLen,
+    uint8_t *input0,
+    uint8_t *input1,
+    uint8_t *input2,
+    uint8_t *input3,
+    uint32_t outputByteLen,
+    uint8_t *output0,
+    uint8_t *output1,
+    uint8_t *output2,
+    uint8_t *output3);
 
 #if defined(__cplusplus)
 }

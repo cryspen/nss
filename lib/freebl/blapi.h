@@ -1912,7 +1912,6 @@ extern SECStatus Kyber768_Encapsulate(uint8_t ciphertext[KYBER768_CIPHERTEXT_BYT
 extern SECStatus Kyber768_Decapsulate(uint8_t sharedSecret[KYBER768_SHARED_SECRET_BYTES], const uint8_t privateKey[KYBER768_PRIVATE_KEY_BYTES], const uint8_t ciphertext[KYBER768_CIPHERTEXT_BYTES]);
 #endif
 
-
 SEC_END_PROTOS
 
 #endif /* _BLAPI_H_ */
